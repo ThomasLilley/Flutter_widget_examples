@@ -2,39 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:widget_examples/Views/Lists/lists.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(Main());
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class Main extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: 'Widget Examples',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: MainMenu(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key}) : super(key: key);
+class MainMenu extends StatefulWidget {
+  MainMenu({Key key}) : super(key: key);
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _MainMenuState createState() => _MainMenuState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MainMenuState extends State<MainMenu> {
   List<Widget> _listContents = [
     Card(
       child: ListTile(
