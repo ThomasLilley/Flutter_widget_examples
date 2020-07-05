@@ -9,7 +9,9 @@ class _ExpansionTileExampleState extends State<ExpansionTileExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+          title: Text("Expanson Tile"),
+      ),
       body: ListView.builder(
         itemCount: 9,
         itemBuilder: (BuildContext context, int i) {
