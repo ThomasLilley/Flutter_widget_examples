@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:widget_examples/Views/expandedTileExample.dart';
 
 void main() => runApp(MyApp());
 
@@ -6,7 +8,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Widget Examples',
       theme: ThemeData(
         // This is the theme of your application.
@@ -60,7 +62,14 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-
+            Card(
+              color: Colors.blueAccent,
+              child: ListTile(
+                title: Text("Expanded Tile"),
+                onTap: () =>
+                    Get.to(ExpandedTileExample(), transition: Transition.native),
+              ),
+            )
           ],
         ),
       ),
