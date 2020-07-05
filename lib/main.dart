@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:widget_examples/Views/expandedTileExample.dart';
+import 'package:widget_examples/Views/expansionPanelExample.dart';
+import 'package:widget_examples/Views/expansionTileExample.dart';
 
 void main() => runApp(MyApp());
 
@@ -63,11 +64,17 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Card(
-              color: Colors.blueAccent,
               child: ListTile(
                 title: Text("Expanded Tile"),
-                onTap: () =>
-                    Get.to(ExpandedTileExample(), transition: Transition.native),
+                onTap: () => Get.to(ExpansionTileExample(),
+                    transition: Transition.native),
+              ),
+            ),
+            Card(
+              child: ListTile(
+                title: Text("Expanded Panel"),
+                onTap: () => Get.to(ExpansionPanelExample(),
+                    transition: Transition.native),
               ),
             )
           ],
