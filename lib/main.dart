@@ -24,15 +24,27 @@ class MainMenu extends StatefulWidget {
   _MainMenuState createState() => _MainMenuState();
 }
 
+class ListItem{
+
+  ListItem({@required this.name, @required this.icon, @required this.route});
+
+  String name;
+  Widget icon;
+  Widget route;
+}
+
 class _MainMenuState extends State<MainMenu> {
-  List<Widget> _listContents = [
-    Card(
-      child: ListTile(
-        leading: Icon(Icons.list),
-        title: Text("Lists"),
-        onTap: () =>
-            Get.to(Lists(), transition: Transition.native),
-      ),
+
+  List<ListItem> _listItems = [
+    ListItem(
+      name: "Lists",
+      icon: Icon(Icons.list),
+      route: Lists(),
+    ),
+    ListItem(
+      name: "Buttons",
+      icon: Icon(Icons.edit_attributes),
+      route: Lists(),
     ),
   ];
 
@@ -44,9 +56,16 @@ class _MainMenuState extends State<MainMenu> {
       ),
       body: Center(
           child: ListView.builder(
-              itemCount: _listContents.length,
-              itemBuilder: (BuildContext context, int index) {
-                return _listContents[index];
+              itemCount: _listItems.length,
+              itemBuilder: (BuildContext context, int i) {
+                return Card(
+                  child: ListTile(
+                    leading: _listItems[i].icon,
+                    title: Text(_listItems[i].name),
+                    onTap: () =>  Get.to(_listItems[i].route, transition: Transition.native),
+                  ),
+                );
+                //return _listContents[index];
               })),
     );
   }
