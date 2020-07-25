@@ -1,44 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:widget_examples/Objects/ListItem.dart';
-import 'package:widget_examples/Views/Buttons/Buttons.dart';
-import 'package:widget_examples/Views/Lists/lists.dart';
 
-
-void main() => runApp(Main());
-
-class Main extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: 'Widget Examples',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MainMenu(),
-    );
-  }
-}
-
-class MainMenu extends StatefulWidget {
-  MainMenu({Key key}) : super(key: key);
+class Buttons extends StatefulWidget {
+  Buttons({Key key}) : super(key: key);
 
   @override
-  _MainMenuState createState() => _MainMenuState();
+  _ButtonsState createState() => _ButtonsState();
 }
 
-class _MainMenuState extends State<MainMenu> {
-
+class _ButtonsState extends State<Buttons> {
   List<ListItem> _listItems = [
     ListItem(
-      name: "Lists",
-      icon: Icon(Icons.list),
-      route: Lists(),
+      name: "1",
+      icon: Icon(Icons.edit_attributes),
+      route: null,
     ),
     ListItem(
-      name: "Buttons",
+      name: "2",
       icon: Icon(Icons.edit_attributes),
-      route: Buttons(),
+      route: null,
     ),
   ];
 
@@ -59,7 +40,6 @@ class _MainMenuState extends State<MainMenu> {
                     onTap: () =>  Get.to(_listItems[i].route, transition: Transition.native),
                   ),
                 );
-                //return _listContents[index];
               })),
     );
   }

@@ -1,47 +1,49 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'expansionPanelExample.dart';
-import 'expansionTileExample.dart';
+import 'package:widget_examples/Objects/ListItem.dart';
+import 'package:widget_examples/Views/Lists/expansionPanelExample.dart';
+import 'package:widget_examples/Views/Lists/expansionTileExample.dart';
 
 class Lists extends StatefulWidget {
-    Lists({Key key}) : super(key: key);
+  Lists({Key key}) : super(key: key);
 
-    @override
-    _ListsState createState() => _ListsState();
+  @override
+  _ListsState createState() => _ListsState();
 }
 
 class _ListsState extends State<Lists> {
-    List<Widget> _listContents = [
-        Card(
-            child: ListTile(
-                title: Text("Expansion Tile"),
-                onTap: () =>
-                    Get.to(ExpansionTileExample(), transition: Transition.native),
-            ),
-        ),
-        Card(
-            child: ListTile(
-                title: Text("Expansion Panel"),
-                onTap: () =>
-                    Get.to(ExpansionPanelExample(), transition: Transition.native),
-            ),
-        )
-    ];
 
-    @override
-    Widget build(BuildContext context) {
-        return Scaffold(
-            appBar: AppBar(
-                title: Text('Widget Examples'),
-            ),
-            body: Center(
-                child: ListView.builder(
-                    itemCount: _listContents.length,
-                    itemBuilder: (BuildContext context, int index){
-                        return _listContents[index];
-                    })
-            ),
-        );
-    }
+  List<ListItem> _listItems = [
+      ListItem(
+          name: "Expansion Tile",
+          icon: Icon(Icons.list),
+          route: ExpansionTileExample(),
+      ),
+      ListItem(
+          name: "Expansion Panel",
+          icon: Icon(Icons.list),
+          route: ExpansionPanelExample(),
+      ),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Widget Examples'),
+      ),
+      body: Center(
+          child: ListView.builder(
+              itemCount: _listItems.length,
+              itemBuilder: (BuildContext context, int i) {
+                return Card(
+                    child: ListTile(
+                        leading: _listItems[i].icon,
+                        title: Text(_listItems[i].name),
+                        onTap: () =>  Get.to(_listItems[i].route, transition: Transition.native),
+                    ),
+                );
+              })),
+    );
+  }
 }
